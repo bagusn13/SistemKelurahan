@@ -55,6 +55,9 @@
   <!-- /.card -->
 </div>
 
+
+
+
 <!-- modal delete -->
 <?php foreach ($arsip as $key => $value) { ?>
   <div class="modal fade" id="delete<?= $value->id_arsip ?>">
