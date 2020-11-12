@@ -109,7 +109,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <iframe src='http://localhost/sistemkelurahan/assets/arsipSurat/<?= $value->surat ?>' width="100%" height="600"></iframe>
+          <iframe src='<?php echo base_url() ?>assets/arsipSurat/<?= $value->surat ?>' width="100%" height="600"></iframe>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -161,7 +161,7 @@
             <input name="surat" type="file" class="form-control" id="preview_gambar">
           </div>
 
-          <iframe src='http://localhost/sistemkelurahan/assets/arsipSurat/<?= $value->surat ?>' width="100%" height="600"></iframe>
+          <iframe src='<?php echo base_url() ?>assets/arsipSurat/<?= $value->surat ?>' width="100%" height="600"></iframe>
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
