@@ -1,71 +1,75 @@
-<div class="col-md-12">
-  <div class="card card-primary">
-    <div class="card-header">
-      <h3 class="card-title">Data User</h3>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Data User</h3>
 
-      <div class="card-tools">
-        <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>
-          Add</button>
-      </div>
-      <!-- /.card-tools -->
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <?php
+          <div class="card-tools">
+            <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>
+              Add</button>
+          </div>
+          <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <?php
 
 
-      // flashdata klo formnya kosong (kudu diisi)
-      echo validation_errors('<div class="alert alert-warning alert-dismissible">
+          // flashdata klo formnya kosong (kudu diisi)
+          echo validation_errors('<div class="alert alert-warning alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>', '</div>');
 
-      if ($this->session->flashdata('pesan')) {
-        echo '<div class="alert alert-success alert-dismissible">
+          if ($this->session->flashdata('pesan')) {
+            echo '<div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-check"></i> Success!</h5>';
-        echo $this->session->flashdata('pesan');
-        echo '</div>';
-      }
+            echo $this->session->flashdata('pesan');
+            echo '</div>';
+          }
 
-      ?>
-      <table class="table table-bordered" id="example1">
-        <thead class="text-center">
-          <tr>
-            <th>No</th>
-            <th>Nama User</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Level</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          <?php $no = 1;
-          foreach ($user as $key => $value) { ?>
-            <tr>
-              <td><?= $no++; ?></td>
-              <td><?= $value->nama_user ?></td>
-              <td><?= $value->username ?></td>
-              <td><?= ($value->password) ?></td>
-              <td><?php
-                  if ($value->level_user == 1) {
-                    echo '<span class="badge bg-primary">Admin</span>';
-                  } else {
-                    echo '<span class="badge bg-success">User</span>';
-                  }
-                  ?></td>
-              <td>
-                <button data-toggle="modal" data-target="#edit<?= $value->id_user ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button data-toggle="modal" data-target="#delete<?= $value->id_user ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+          ?>
+          <table class="table table-bordered" id="example1">
+            <thead class="text-center">
+              <tr>
+                <th>No</th>
+                <th>Nama User</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Level</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <?php $no = 1;
+              foreach ($user as $key => $value) { ?>
+                <tr>
+                  <td><?= $no++; ?></td>
+                  <td><?= $value->nama_user ?></td>
+                  <td><?= $value->username ?></td>
+                  <td><?= ($value->password) ?></td>
+                  <td><?php
+                      if ($value->level_user == 1) {
+                        echo '<span class="badge bg-primary">Admin</span>';
+                      } else {
+                        echo '<span class="badge bg-success">User</span>';
+                      }
+                      ?></td>
+                  <td>
+                    <button data-toggle="modal" data-target="#edit<?= $value->id_user ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                    <button data-toggle="modal" data-target="#delete<?= $value->id_user ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
 
-              </td>
-            </tr>
-          <?php } ?>
-        </tbody>
-      </table>
+                  </td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
 </div>
 
 <!-- modal add -->

@@ -33,7 +33,7 @@ class User_login
     } else {
       // jika tidak ada (username password salah), maka suruh login lagi
       $this->ci->session->set_flashdata('error', 'Username atau Password salah');
-      redirect('auth/login_user');
+      redirect('auth');
     }
   }
 
@@ -41,7 +41,7 @@ class User_login
   {
     if ($this->ci->session->userdata('username') == '') {
       $this->ci->session->set_flashdata('error', 'Anda belum melakukan login');
-      redirect('auth/login_user');
+      redirect('auth');
     }
   }
 
@@ -52,7 +52,7 @@ class User_login
     $this->ci->session->unset_userdata('nama_user');
     $this->ci->session->unset_userdata('level_user');
     $this->ci->session->set_flashdata('pesan', 'Anda berhasil logout');
-    redirect('auth/login_user');
+    redirect('auth');
   }
 }
 

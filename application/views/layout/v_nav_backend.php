@@ -4,7 +4,7 @@
   <a href="<?= base_url('admin') ?>" class="brand-link">
     <img src="<?= base_url() ?>assets/image/logo_dki.png" alt="AdminLTE Logo" class="brand-image-xs" style="opacity: .8">
 
-    <span class="brand-text font-weight-light">Kelurahan Batu Ampar</span>
+    <span class="brand-text font-weight-light ml-1">Kelurahan Batu Ampar</span>
   </a>
 
   <!-- Sidebar -->
@@ -48,13 +48,61 @@
           </a>
         </li>
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="<?= base_url('arsip') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'arsip') {
                                                                 echo "active";
                                                               } ?>">
             <i class="nav-icon fas fa-cubes"></i>
             <p>
               Arsip Surat
+
+            </p>
+          </a>
+        </li> -->
+
+        <li class="nav-item">
+          <a href="<?= base_url('surat_keputusan') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'surat_keputusan') {
+                                                                          echo "active";
+                                                                        } ?>">
+            <i class="nav-icon fas fa-user-tie"></i>
+            <p>
+              Surat Keputusan
+              <!-- <span class="right badge badge-danger">New</span> -->
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?= base_url('surat_tugas') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'surat_tugas') {
+                                                                      echo "active";
+                                                                    } ?>">
+            <i class="nav-icon fas fa-tasks"></i>
+            <p>
+              Surat Tugas
+              <!-- <span class="right badge badge-danger">New</span> -->
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?= base_url('surat_masuk') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'surat_masuk') {
+                                                                      echo "active";
+                                                                    } ?>">
+            <i class="nav-icon fas fa-inbox"></i>
+            <p>
+              Surat Masuk
+              <!-- <span class="right badge badge-danger">New</span> -->
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?= base_url('surat_keluar') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'surat_keluar') {
+                                                                      echo "active";
+                                                                    } ?>">
+            <i class="nav-icon fas fa-paper-plane"></i>
+            <p>
+              Surat Keluar
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
           </a>
@@ -81,8 +129,8 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
+    <div class="container">
+      <div class="row justify-content-center mb-2">
         <div class="col-sm-6">
           <h1 class="m-0 text-dark"><?= $title ?></h1>
         </div><!-- /.col -->

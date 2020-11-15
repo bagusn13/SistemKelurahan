@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <!-- general form elements disabled -->
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title"><?= $title ?></h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <!-- multipart di pake klo ada upload gambar -->
+          <?php
+          // notifikasi form kosong
+          echo validation_errors('<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h5><i class="icon fas fa-ban"></i> Alert!</h5>', '</div>');
+
+          // notifikasi gagal upload gambar
+          if (isset($error_upload)) {
+            echo '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h5><i class="icon fas fa-ban"></i> Alert!</h5>' . $error_upload . '</div>';
+          }
+
+          echo form_open_multipart('surat_masuk/add') ?>
+          <div class="form-group">
+            <label>Dari</label>
+            <input name="dari" class="form-control" placeholder="Dari" value="<?= set_value('dari') ?>">
+          </div>
+
+          <div class="form-group">
+            <label>Nomor Surat</label>
+            <input name="nomor_surat" class="form-control" placeholder="Nomor Surat" value="<?= set_value('nomor_surat') ?>">
+          </div>
+
+          <div class="form-group">
+            <label>Tanggal Surat</label>
+            <input name="tanggal_surat" class="form-control" placeholder="YYYY-mm-dd" value="<?= set_value('tanggal_surat') ?>">
+          </div>
+
+          <div class="form-group">
+            <label>Perihal</label>
+            <input name="perihal" class="form-control" placeholder="Perihal" value="<?= set_value('perihal') ?>">
+          </div>
+
+          <div class="form-group">
+            <label>Di</label>
+            <input name="di" class="form-control" placeholder="Di" value="<?= set_value('di') ?>">
+          </div>
+
+          <div class="form-group">
+            <label>Keterangan</label>
+            <input name="keterangan" class="form-control" placeholder="Keterangan" value="<?= set_value('keterangan') ?>">
+          </div>
+
+          <div class="form-group">
+            <label for="kategori">Kategori</label>
+            <select class="form-control" name="kategori" id="kategori">
+              <?php foreach ($kategori as $key => $value) { ?>
+                <option value="<?= $value->kategori ?>"><?= $value->kategori ?></option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label>Surat</label>
+                <input name="surat" type="file" class="form-control" id="preview_gambar">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Simpan</button>
+            <a href="<?= base_url('surat_masuk') ?>" class="btn btn-danger btn-lg">Kembali</a>
+          </div>
+
+          <?php echo form_close() ?>
+        </div>
+        <!-- /.card-body -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function bacaGambar(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#gambar_load').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#preview_gambar").change(function() {
+    bacaGambar(this)
+  });
+</script>

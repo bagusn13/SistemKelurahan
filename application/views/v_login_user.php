@@ -56,7 +56,7 @@
 
 
 
-        echo form_open('auth/login_user')
+        echo form_open('auth')
         ?>
         <form action="../../index3.html" method="post">
           <div class="input-group mb-3">
